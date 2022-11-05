@@ -5,9 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y && \
     apt-get install -y vim
 
-WORKDIR /app/vendure
-
-COPY entrypoint.sh /app/vendure/
+COPY entrypoint.sh .
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["bash"]
