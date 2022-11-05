@@ -14,8 +14,6 @@ function ready() {
 
 function db_setup() {
 
-    export DB=postgres
-
     DB_NAME="vendure"
 
     sleep 10 # wait for db to be up
