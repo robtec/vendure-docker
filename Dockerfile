@@ -8,4 +8,4 @@ RUN apt-get update -y && \
 COPY entrypoint.sh .
 
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["bash"]
+CMD ["sleep","infinity"]
