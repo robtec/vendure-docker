@@ -16,6 +16,7 @@ services:
       - 3000:3000
       - 4200:4200
     environment:
+      DB: postgres
       PG_USER: pguser
       PG_PASS: mysecretpassword
       PG_HOST: database
