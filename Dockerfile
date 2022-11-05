@@ -7,7 +7,7 @@ RUN apt-get update -y && \
 
 WORKDIR /app/vendure
 
-COPY entrypont.sh /app/vendure/
+COPY entrypoint.sh /app/vendure/
 
 ENTRYPOINT ["./entrypoint.sh"]
 CMD ["bash"]
