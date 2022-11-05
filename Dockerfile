@@ -9,5 +9,5 @@ WORKDIR /app/vendure
 
 COPY entrypoint.sh /app/vendure/
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["bash"]
