@@ -31,7 +31,7 @@ function getDbConfig(): ConnectionOptions {
                 port: 5432,
                 username: 'pguser',
                 password: 'mysecretpassword',
-                database: 'vendure-dev',
+                database: 'vendure',
             };
 ...
 ```
@@ -41,6 +41,16 @@ function getDbConfig(): ConnectionOptions {
 Build the image and run the container, mounting `vendure`
 ```
 docker compose up -d --build
+```
+
+Follow the logs to see the build status (can take 6 to 10 minutes to complete)
+```
+docker logs -f vendure
+```
+
+Once you see `### Ready to Start ###`, then `exec` into the container
+```
+docker exec -it vendure bash
 ```
 
 ## Docs
