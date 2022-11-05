@@ -14,9 +14,7 @@ You should now hava a `vendure` directory, that will be mounted into your contai
 
 ### DB
 
-Update `packages/dev-server/dev-config.ts` with your database details, you can use those set in the `docker-compose.yml` for to use `postgres`
-
-Update `packages/dev-server/dev-config.ts` to the following, settings from our `postgreSQL` in the `docker-compose.yml` file
+Update `vendure/packages/dev-server/dev-config.ts` to the following db settings from our `postgres` in the `docker-compose.yml` file
 ```
 ...
 function getDbConfig(): ConnectionOptions {
@@ -38,7 +36,7 @@ function getDbConfig(): ConnectionOptions {
 
 ## Run
 
-Build the image and run the container, mounting `vendure`
+Build the image and run the container (this will mount `vendure` into the container as a volume)
 ```
 docker compose up -d --build
 ```
@@ -52,6 +50,18 @@ Once you see `### Ready to Start ###`, then `exec` into the container
 ```
 docker exec -it vendure bash
 ```
+
+You are now in the container
+```
+# navigate to the project
+cd /app/vendure/
+
+# start the dev server
+yarn dev-server:start
+
+# watch the output for the URLs
+```
+
 
 ## Docs
 
