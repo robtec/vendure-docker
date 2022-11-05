@@ -16,7 +16,7 @@ You should now hava a `vendure` directory, that will be mounted into your contai
 
 Update `packages/dev-server/dev-config.ts` with your database details, you can use those set in the `docker-compose.yml` for to use `postgres`
 
-Update `packages/dev-server/dev-config.ts` to the following
+Update `packages/dev-server/dev-config.ts` to the following, settings from our `postgreSQL` in the `docker-compose.yml` file
 ```
 ...
 function getDbConfig(): ConnectionOptions {
@@ -30,7 +30,7 @@ function getDbConfig(): ConnectionOptions {
                 host: 'database',
                 port: 5432,
                 username: 'pguser',
-                password: 'secret',
+                password: 'mysecretpassword',
                 database: 'vendure-dev',
             };
 ...
