@@ -42,3 +42,7 @@ Build the image and run the container, mounting `vendure`
 ```
 docker compose up -d --build
 ```
+
+## Docs
+
+- https://github.com/vendure-ecommerce/vendure#development
