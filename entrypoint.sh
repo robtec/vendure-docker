@@ -3,6 +3,8 @@
 set -e
 
 function setup() {
+
+    cd /app/vendure/
     
     # steps as per https://github.com/vendure-ecommerce/vendure#development
     
