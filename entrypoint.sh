@@ -8,6 +8,8 @@ function does_db_exist() {
 
 function db_setup() {
 
+    export DB=postgres
+
     DB_NAME="vendure"
 
     sleep 10 # wait for db to be up
@@ -23,7 +25,7 @@ function db_setup() {
 
     cd /app/vendure/packages/dev-server/
 
-    DB=postgres yarn populate
+    yarn populate
 }
 
 function versions() {
