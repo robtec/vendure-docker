@@ -2,6 +2,30 @@
 
 set -e
 
+function does_db_exist() {
+    psql -U $PG_USER -h $PG_HOST -lqt | cut -d \| -f 1 | grep -wq $1
+}
+
+function db_setup() {
+
+    DB_NAME="vendure"
+
+    sleep 10 # wait for db to be up
+    export PGPASSWORD=$PG_PASS
+
+    if does_db_exist $DB_NAME
+    then
+        echo -e "$DB_NAME db exists, skipping create"
+    else
+        echo -e "$DB_NAME db does not exist, creating"
+        psql -U $PG_USER -h $PG_HOST -c "CREATE DATABASE vendure ENCODING = 'UTF8';"
+    fi
+
+    cd /app/vendure/packages/dev-server/
+
+    DB=postgres yarn populate
+}
+
 function versions() {
 
     echo -e "### node version ###"
@@ -26,8 +50,6 @@ function setup() {
 
     cd /app/vendure/
     
-    # steps as per https://github.com/vendure-ecommerce/vendure#development
-    
     echo -e ">>> step 1"
     yarn
 
@@ -41,5 +63,7 @@ function setup() {
 versions
 
 setup
+
+db_setup
 
 exec "$@"
