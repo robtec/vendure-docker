@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+
+  vendure:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vendure-image
+    container_name: vendure
+    volumes:
+      - ./vendure:/app/vendure
+    depends_on:
+      - "database"
+    ports:
+      - 8080:8080
+    environment:
+      PG_USER: pguser
+      PG_PASS: mysecretpassword
+      PG_HOST: database
+
+  database:
+    image: postgres:14.1-alpine
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: mysecretpassword
