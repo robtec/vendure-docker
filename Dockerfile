@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:14
 
 ENV DEBIAN_FRONTEND=noninteractive
 
