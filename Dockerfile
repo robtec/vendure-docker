@@ -7,7 +7,9 @@ RUN apt-get update -y && \
     wget vim postgresql-client && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY entrypoint.sh .
+WORKDIR /app/vendure/
+
+COPY entrypoint.sh /
 
 ENTRYPOINT ["./entrypoint.sh"]
 
