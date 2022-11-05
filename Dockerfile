@@ -11,4 +11,4 @@ COPY entrypoint.sh .
 
 ENTRYPOINT ["./entrypoint.sh"]
 
-CMD ["yarn","start"]
+CMD ["sleep","infinity"]
