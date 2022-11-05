@@ -10,7 +10,6 @@ services:
     container_name: vendure
     volumes:
       - ./vendure:/app/vendure
-      - ./yarn-cache:/root/.cache/
     depends_on:
       - "database"
     ports:
