@@ -6,6 +6,12 @@ function does_db_exist() {
     psql -U $PG_USER -h $PG_HOST -lqt | cut -d \| -f 1 | grep -wq $1
 }
 
+function ready() {
+    echo -e "##############################################"
+    echo -e "########### Ready to Start ###################"
+    echo -e "##############################################"
+}
+
 function db_setup() {
 
     export DB=postgres
@@ -67,5 +73,7 @@ versions
 setup
 
 db_setup
+
+ready
 
 exec "$@"
