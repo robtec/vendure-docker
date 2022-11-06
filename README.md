@@ -46,7 +46,7 @@ Follow the logs to see the build status (can take 6 to 10 minutes to complete)
 docker logs -f vendure
 ```
 
-Once you see `### Ready to Start ###`, then `exec` into the container
+Once you see `### Ready to Start ###`, `exec` into the container to start the server
 ```
 docker exec -it vendure bash
 ```
