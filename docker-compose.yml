@@ -11,7 +11,7 @@ services:
     volumes:
       - ./vendure:/app/vendure
     depends_on:
-      - "database"
+      - database
     ports:
       - 3000:3000
       - 4200:4200
@@ -20,6 +20,18 @@ services:
       PG_USER: pguser
       PG_PASS: mysecretpassword
       PG_HOST: database
+  
+  traefik:
+    image: traefik:v2.9
+    container_name: traefik
+    volumes:
+      - ./files/traefik.toml:/etc/traefik/traefik.toml
+    depends_on:
+      - database
+      - vendure
+    ports:
+      - 8080:8080
+      - 80:80
 
   database:
     image: postgres:14.1-alpine

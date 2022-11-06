@@ -44,7 +44,7 @@ function versions() {
     npm -v
 }
 
-function setup() {
+function build() {
 
     FILE=/app/vendure/package.json
 
@@ -68,7 +68,7 @@ function setup() {
 
 versions
 
-setup
+build
 
 db_setup
 
