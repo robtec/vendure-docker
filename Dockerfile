@@ -7,8 +7,10 @@ RUN apt-get update -y && \
     wget vim postgresql-client && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY entrypoint.sh .
+WORKDIR /app/venture/packages/dev-server/
 
-ENTRYPOINT ["./entrypoint.sh"]
+COPY entrypoint.sh /
 
-CMD ["sleep","infinity"]
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["yarn","start"]

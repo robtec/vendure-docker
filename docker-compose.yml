@@ -36,7 +36,6 @@ services:
   database:
     image: postgres:14.1-alpine
     container_name: postgres-db
-    restart: always
     environment:
       POSTGRES_USER: pguser
       POSTGRES_PASSWORD: mysecretpassword

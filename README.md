@@ -46,22 +46,7 @@ Follow the logs to see the build status (can take 6 to 10 minutes to complete)
 docker logs -f vendure
 ```
 
-Once you see `### Ready to Start ###`, `exec` into the container to start the server
-```
-docker exec -it vendure bash
-```
-
-You are now in the container
-```
-# navigate to the project
-cd /app/vendure/
-
-# start the dev server
-yarn dev-server:start
-
-# watch the output for the URLs
-```
-
+Once you see `### Build Complete ###`, navigate to `http://<ip-address>:3000/admin`
 
 ## Docs
 
